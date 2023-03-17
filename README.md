@@ -4,8 +4,7 @@
 We need a repository in github which have a DockerFile. In this case, we will use this repository: https://github.com/ateixivi14/rover-api
 We need to upload this image to docker hub, for that, after registiring we create a new repository:
 
-<img width="1334" alt="Captura de pantalla 2023-03-17 a las 12 14 25" src="https://user-images.githubusercontent.com/77200940/225889582-99a628a5-dde7-44aa-a168-e01eb7ee5309.png">
-
+![](1.png)
 We make sure that we have the image in local `docker images`
 
 Then we tag it 
@@ -15,8 +14,7 @@ Then we tag it
 And finally we push it:
 
 `docker push ateixivi14/rover-api:latest`
-
-<img width="736" alt="Captura de pantalla 2023-03-17 a las 12 18 38" src="https://user-images.githubusercontent.com/77200940/225890376-0a6a016f-4055-4b73-9dbe-586a32c2e102.png">
+![](2.png)
 
 ### **2. Install Minikube and set up**
 
@@ -38,13 +36,13 @@ We can check that the pods are running:
 
 `kubectl get pod -n argocd`
 
-![](../Captura de pantalla 2023-03-17 a las 12.25.40.png)
+![](3.png)
 
 ### **4. Do port forwarding to enter to argoCD user interface and login it**
 We will do port forwarding to `argocd-server `  
 To check the service `kubectl get svc -n argocd`
 
-![](../Captura de pantalla 2023-03-17 a las 12.25.46.png)
+![](4.png)
 
 The command for port forwarding: 
 
@@ -63,8 +61,8 @@ https://github.com/ateixivi14/rover-api-config
 
 Note that the argoCD config file is stored in this repository too. In this file, it's important to specify in `source` attribute the git repository in which argoCD will connect to and also the destination or cluster where argoCD will apply the definitions of the config repository.
 
-![](../Captura de pantalla 2023-03-17 a las 12.37.31.png)
 
+![](5.png)
 `targetDivision` attribute means the latest commit in the repository
 and the path is the folder that we have the deployment and service files (in config repo) and will be tracked by argoCD
 
@@ -83,7 +81,7 @@ We just need to apply this config just one time. After that, everything should b
 
 We can see finally in the UI the overview of different components of argoCD application, including the two pod replicas:
 
-![](../Captura de pantalla 2023-03-17 a las 13.17.50.png)
+![](6.png)
 ### References
 - https://argo-cd.readthedocs.io/en/stable/operator-manual/declarative-setup/
 
